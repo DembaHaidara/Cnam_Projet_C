@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1670156801 source:/media/alm/Seagate Basic/00Documents/CNAM/C/Cnam_Projet_C/ProjetC/main.cpp
+	<iostream>
+	<fstream>
+	<string>
+

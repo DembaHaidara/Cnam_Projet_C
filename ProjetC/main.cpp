@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+
 
 using namespace std;
 
@@ -60,6 +62,7 @@ void Occurrences_Lettres(){
     int tab[5] = {0,0,0,0,0};
      char tabLetter[5] ={'a','b','c','d','e'};
     int a =0;
+    string tableau = "{";
 
 
     if(monFlux && monFluxWrite){
@@ -81,23 +84,25 @@ void Occurrences_Lettres(){
         for(int i = 0;i < 5;i++){
         cout << "Occurences du texte à analyser : "<< tabLetter[i]<<" " << tab[i]<< endl;
 
+        tableau += std::to_string(tab[i]);
         monFluxWrite << "Occurences du texte à analyser : "<< tabLetter[i]<<" "<< tab[i]<< endl;
 
+        if(i == 4){}else{tableau+=",";}
+
         }
-                cout << "Tableau d'occurences : "<< tab;
-                monFluxWrite << "Tableau d'occurences : "<< tab;
+        tableau+="}";
+
+                cout << "Tableau d'occurences : "<< tableau;
+                monFluxWrite << "Tableau d'occurences : "<< tableau;
     }
     else{
         cout << "Erreur Impossible d'ouvrir le ficher" << endl;
     }
 
-
-
-
 }
 int main()
 {
 
-
+    Occurrences_Lettres();
     return 0;
 }

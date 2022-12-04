@@ -3,3 +3,9 @@ Bonjour, je suis  à une phrase écrite dans un fichier.J'ai ans.
 
 
 
+Occurences du texte à analyser : a 4
+Occurences du texte à analyser : b 1
+Occurences du texte à analyser : c 2
+Occurences du texte à analyser : d 1
+Occurences du texte à analyser : e 5
+Tableau d'occurences : {4,1,2,1,5}
