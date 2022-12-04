@@ -1,10 +1,6 @@
 #include <iostream>
-#include <fstream> // lire ecrir file
+#include <fstream>
 #include <string>
-#include <sstream> //
-
-
-
 
 
 using namespace std;
@@ -102,35 +98,13 @@ void Occurrences_Lettres(){
     else{
         cout << "Erreur Impossible d'ouvrir le ficher" << endl;
     }
-};
 
-void recupTabFile(){
-  ifstream monFlux("fileTest.txt"); // ouvre le file en mode lecture
-
-    string a;
-    std::string str;
-    while(monFlux >> str); // recup le dernier mot
-        std::cout << str << '\n';
-int tab[26];
-int i =0;
-std::istringstream isstream;
-std::string word;
-isstream.str(str);
-
-while(getline(isstream, word, ',')){//split le dernier mot quand il y a une virgule
-
-    int num = stoi(word); //convertir le nb en string en int
-    tab[i] = num; // j'insere le nb de type dans le tableau
-   //std::cout << tab[i] << std::endl;
-    i++;
-    }
 }
-
-
 int main()
 {
-       Occurrences_Lettres();
 
 
+    Occurrences_Lettres();
     return 0;
 }
+
