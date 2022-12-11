@@ -25,9 +25,6 @@ University of Sheffield UCU branch president Dr Robyn Orfitelli, 38, who teaches
 
 "More and more every single year, it feels like we are having to just fight to even be allowed to do our jobs - and people are breaking," she said.
 "More and more every single year, it feels like
-Occurences du texte à analyser : a 116
-Occurences du texte à analyser : b 27
-Occurences du texte à analyser : c 48
-Occurences du texte à analyser : d 67
-Occurences du texte à analyser : e 219
-Tableau d'occurences : 116,27,48,67,219
+
+Occurences du texte à analyser : a : 116 b : 27 c : 48 d : 67 e : 219 f : 35 g : 36 h : 66 i : 129 j : 7 k : 19 l : 57 m : 33 n : 111 o : 91 p : 23 q : 0 r : 93 s : 135 t : 145 u : 59 v : 19 w : 24 x : 4 y : 32 z : 0  
+Tableau d'occurences : 116,27,48,67,219,35,36,66,129,7,19,57,33,111,91,23,0,93,135,145,59,19,24,4,32,0

@@ -91,7 +91,7 @@ int* Occurrences_Lettres(string urlFile){
         monFluxWrite << tabLetter[i] << " : " << tab[i] << " " ;
 
 
-        if(i == 4){}else{tableau+=",";}
+        if(i == 25){}else{tableau+=",";}
 
         }
         tableau+="";
@@ -229,6 +229,7 @@ int main()
 {
     string urlFile ="test.txt";
  int *p = Occurrences_Lettres(urlFile);
+
  prog(p,urlFile);
 
    //Calcule_ecart(p);

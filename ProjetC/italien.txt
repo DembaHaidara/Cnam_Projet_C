@@ -8,4 +8,5 @@ Occurences du texte à analyser : b 8
 Occurences du texte à analyser : c 75
 Occurences du texte à analyser : d 64
 Occurences du texte à analyser : e 176
-Tableau d'occurences : 190,8,75,64,176
+Tableau d'occurences : 190,8,75,64,176Occurences du texte à analyser : a : 203 b : 10 c : 94 d : 71 e : 205 f : 13 g : 26 h : 17 i : 163 j : 4 k : 3 l : 108 m : 43 n : 123 o : 170 p : 54 q : 8 r : 128 s : 87 t : 102 u : 62 v : 26 w : 4 x : 5 y : 9 z : 17  
+Tableau d'occurences : 203,10,94,71,20513,26,17,163,4,3,108,43,123,170,54,8,128,87,102,62,26,4,5,9,17,
