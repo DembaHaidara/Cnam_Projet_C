@@ -1,7 +1,9 @@
 #include <iostream>
 #include <fstream> // lire ecrir file
 #include <string>
-#include <sstream> //
+#include <sstream>
+#include <math.h>  //
+#include <algorithm>
 
 
 
@@ -16,6 +18,7 @@ char conversionChar(char s) {
     //A, Â, À, Ä, â, à, ä
     if (s == 'â' || s == 'à' || s == 'ä') {
         s = 'a';
+        cout << "ok";
     }
     //É, È, Ê, Ë, é, è, ê, ë
     if (s == 'é' || s == 'è' || s == 'ê' || s == 'ë') {
@@ -42,17 +45,15 @@ char conversionChar(char s) {
         s == 'c';
     }
 
-    cout<<s<<endl;
     return s;
 
 }
 
-void Occurrences_Lettres(){
-    cout << "Hello world!" << endl;
+int* Occurrences_Lettres(string urlFile){
 
     //Déclaration d'un flux permettant de lire dans le fichier
-    ifstream monFlux("fileTest.txt");
-    ofstream monFluxWrite("fileTest.txt",ios::app);
+    ifstream monFlux(urlFile);
+    ofstream monFluxWrite(urlFile,ios::app);
 
     /*
     3 facons de lire un file :
@@ -63,73 +64,176 @@ void Occurrences_Lettres(){
     */
 
     char letter,letter2;
-    int tab[5] = {0,0,0,0,0};
-     char tabLetter[5] ={'a','b','c','d','e'};
-    int a =0;
-    string tableau = "{";
+    int static tab[26] = {};
+     char tabLetter[26] ={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+
+    string tableau = "";
 
 
     if(monFlux && monFluxWrite){
         while(monFlux.get(letter)){
-                if(letter=='â'){cout << "ok"<< endl;}
 
         letter2 = conversionChar(letter);
-            for(int i =0;i <5;i++){
+            for(int i =0;i < 26;i++){
                 if(tabLetter[i]== letter2){
-
                 tab[i] +=1;
-
-                cout << "rentre"<< endl;
-                cout << letter<< endl;
+               // cout << tab[i] << endl;
                 }
             }
         }
-
-        for(int i = 0;i < 5;i++){
-        cout << "Occurences du texte à analyser : "<< tabLetter[i]<<" " << tab[i]<< endl;
+        monFluxWrite << "Occurences du texte à analyser : ";
+        for(int i = 0;i < 26;i++){
+      //  cout << "Occurences du texte à analyser : "<< tabLetter[i]<<" " << tab[i]<< endl;
 
         tableau += std::to_string(tab[i]);
-        monFluxWrite << "Occurences du texte à analyser : "<< tabLetter[i]<<" "<< tab[i]<< endl;
+
+
+        monFluxWrite << tabLetter[i] << " : " << tab[i] << " " ;
+
 
         if(i == 4){}else{tableau+=",";}
 
         }
-        tableau+="}";
-
-                cout << "Tableau d'occurences : "<< tableau;
-                monFluxWrite << "Tableau d'occurences : "<< tableau;
+        tableau+="";
+                monFluxWrite << " " << endl;
+                monFluxWrite << "Tableau d'occurences : "<< tableau << endl;
+                cout << tab << endl;
+                 return tab;
     }
     else{
         cout << "Erreur Impossible d'ouvrir le ficher" << endl;
     }
+
+
 };
 
-void recupTabFile(){
-  ifstream monFlux("fileTest.txt"); // ouvre le file en mode lecture
+int * recupTabFile(string urlFile){
+    int static tab[26];
 
-    string a;
+  ifstream monFlux(urlFile); // ouvre le file en mode lecture
+   if(monFlux){
+
     std::string str;
     while(monFlux >> str); // recup le dernier mot
-        std::cout << str << '\n';
-int tab[26];
-int i =0;
-std::istringstream isstream;
-std::string word;
-isstream.str(str);
 
-while(getline(isstream, word, ',')){//split le dernier mot quand il y a une virgule
-
-    int num = stoi(word); //convertir le nb en string en int
-    tab[i] = num; // j'insere le nb de type dans le tableau
-   //std::cout << tab[i] << std::endl;
-    i++;
+    int i =0;
+    std::string word ="";
+    std::istringstream isstream;
+    isstream.str(str);
+    while(getline(isstream, word, ',')){//split le dernier mot quand il y a une virgule
+       int num = stoi(word); //convertir le nb en string en int
+        tab[i] = num; // j'insere le nb de type dans le tableau
+        i++;
     }
+    return tab;
+
+   }
+    else{
+        cout << "Erreur Impossible d'ouvrir le ficher" << endl;
+    }
+return 0;
+
 }
 
 
+double Calcule_ecart(int *textTabAnalyse,string urlLangue){
+
+    int *tabLangue = recupTabFile(urlLangue+".txt");
+
+    double sommeTextAnalyser = 0;
+
+    double sommeTabLangue= 0;
+
+    int nbElementTabText = 26;
+
+    double resultatTabLangue =0;
+    double  calculTabLangue =0;
+
+
+    for(int i = 0;i< nbElementTabText;i++){
+        sommeTextAnalyser += textTabAnalyse[i];
+        sommeTabLangue += tabLangue[i];
+
+    }
+
+
+    for(int i = 0;i < nbElementTabText;i++){
+
+    calculTabLangue += pow((textTabAnalyse[i]/sommeTextAnalyser) - (tabLangue[i]/sommeTabLangue),2.0);
+
+    }
+
+   resultatTabLangue = sqrt(calculTabLangue);
+
+    cout << "Ecart " << urlLangue << " "<< resultatTabLangue<< endl;
+
+return resultatTabLangue;
+
+
+
+
+
+};
+
+
+void prog(int *p,string urlFile)
+{
+    string urlLangue[5] = {"allemand","espagnol","francais","italien","anglais"};
+    double resultatLangue[5];
+
+
+
+   // p = Occurrences_Lettres(urlFile);
+    for(int i = 0;i < 5;i++){
+     resultatLangue[i] = Calcule_ecart(p,urlLangue[i]);
+     };
+   int positionLangue;
+
+    double mini = resultatLangue[0];
+
+    int i;
+
+    for(i = 0; i < 5; i++)
+    {
+        if(resultatLangue[i] < mini)
+        {
+            mini =  resultatLangue[i];
+            positionLangue = i;
+        }
+    }
+
+
+
+   cout <<"Langue trouvée : " << urlLangue[positionLangue] << endl;
+  ofstream monFluxWrite(urlFile,ios::app);
+  if(monFluxWrite){
+
+        monFluxWrite <<"Langue trouvée : " << urlLangue[positionLangue] << endl;
+        monFluxWrite << urlLangue[0] <<"; écart : "  << resultatLangue[0] << endl;
+        monFluxWrite << urlLangue[1] <<"; écart : "  << resultatLangue[1] << endl;
+        monFluxWrite << urlLangue[2] <<"; écart : "  << resultatLangue[2] << endl;
+        monFluxWrite << urlLangue[3] <<"; écart : "  << resultatLangue[3] << endl;
+        monFluxWrite << urlLangue[4] <<"; écart : "  << resultatLangue[4] << endl;
+
+
+
+
+   }
+   else{
+        cout << "Erreur Impossible d'ouvrir le ficher" << endl;
+    }
+
+
+}
 int main()
 {
-       Occurrences_Lettres();
+    string urlFile ="test.txt";
+ int *p = Occurrences_Lettres(urlFile);
+ prog(p,urlFile);
+
+   //Calcule_ecart(p);
+
+
 
 
     return 0;

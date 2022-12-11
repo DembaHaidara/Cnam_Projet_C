@@ -15,3 +15,9 @@ En el resto del vuelo, es posible utilizar una red WiFi previo pago en algunas a
 Tal y como ha señalado la Comisión, desde 2008 reserva determinadas frecuencias para las comunicaciones móviles en los aviones, una decisión sobre comunicaciones a bordo que se ha actualizado recientemente con el despliegue generalizado de servicios 5G
 
 Ahora la Unión Europea ha anunciado que todos los pasajeros a bordo de vuelos en la Unión Europea podrán tanto mantener sus es
+Occurences du texte à analyser : a 205
+Occurences du texte à analyser : b 10
+Occurences du texte à analyser : c 78
+Occurences du texte à analyser : d 95
+Occurences du texte à analyser : e 227
+Tableau d'occurences : 205,10,78,95,227

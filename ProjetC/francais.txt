@@ -22,3 +22,9 @@ les Italiens, les Anglais et Brésiliens
 
 
 
+Occurences du texte à analyser : a 83
+Occurences du texte à analyser : b 15
+Occurences du texte à analyser : c 38
+Occurences du texte à analyser : d 78
+Occurences du texte à analyser : e 235
+Tableau d'occurences : 83,15,38,78,235
