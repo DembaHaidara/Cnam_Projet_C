@@ -2,7 +2,7 @@
 #include <fstream> // lire ecrir file
 #include <string>
 #include <sstream>
-#include <math.h>  //
+#include <math.h>  //O
 #include <algorithm>
 
 
@@ -88,7 +88,7 @@ int* Occurrences_Lettres(string urlFile){
         tableau += std::to_string(tab[i]);
 
 
-        monFluxWrite << tabLetter[i] << " : " << tab[i] << " " ;
+        monFluxWrite << tabLetter[i] << " : " << tab[i] << ";" ;
 
 
         if(i == 25){}else{tableau+=",";}
@@ -97,17 +97,19 @@ int* Occurrences_Lettres(string urlFile){
         tableau+="";
                 monFluxWrite << " " << endl;
                 monFluxWrite << "Tableau d'occurences : "<< tableau << endl;
-                cout << tab << endl;
                  return tab;
     }
     else{
-        cout << "Erreur Impossible d'ouvrir le ficher" << endl;
+        return 0;
     }
-
+cout <<"Une erreur c'est produite"<< endl;
+cout << "Nous vous prions de nous excuser pour la gêne occasionnée" << endl;
+exit(0);
 
 };
 
 int * recupTabFile(string urlFile){
+
     int static tab[26];
 
   ifstream monFlux(urlFile); // ouvre le file en mode lecture
@@ -115,6 +117,8 @@ int * recupTabFile(string urlFile){
 
     std::string str;
     while(monFlux >> str); // recup le dernier mot
+
+
 
     int i =0;
     std::string word ="";
@@ -129,9 +133,12 @@ int * recupTabFile(string urlFile){
 
    }
     else{
-        cout << "Erreur Impossible d'ouvrir le ficher" << endl;
+        return 0;
     }
-return 0;
+cout <<"Une erreur c'est produite"<< endl;
+cout << "Nous vous prions de nous excuser pour la gêne occasionnée" << endl;
+exit(0);
+
 
 }
 
@@ -176,7 +183,7 @@ return resultatTabLangue;
 };
 
 
-void prog(int *p,string urlFile)
+void Trouve_langue(int *p,string urlFile)
 {
     string urlLangue[5] = {"allemand","espagnol","francais","italien","anglais"};
     double resultatLangue[5];
@@ -220,21 +227,81 @@ void prog(int *p,string urlFile)
 
    }
    else{
-        cout << "Erreur Impossible d'ouvrir le ficher" << endl;
+        cout <<"Une erreur c'est produite"<< endl;
+        cout << "Nous vous prions de nous excuser pour la gêne occasionnée" << endl;
+        exit(0);
     }
 
 
 }
 int main()
 {
+    int choix;
     string urlFile ="test.txt";
- int *p = Occurrences_Lettres(urlFile);
-
- prog(p,urlFile);
-
-   //Calcule_ecart(p);
 
 
+
+    do{
+    cout <<"Que souhaitez -vous générer ?"<< endl;
+    cout <<"• Les occurrences des lettres d'un texte : Option (1)"<< endl;
+    cout <<"• Trouver la langue d'un texte: Option (2)"<< endl;
+    cout <<"• Quitter : Option (3)"<< endl;
+
+
+    cin >> choix;
+    cout <<"• Choix selectionner : "<< choix << endl;
+
+
+
+    }while( (choix != 1) && (choix != 2) & (choix != 3));
+
+
+
+    if(choix == 1){
+        string cheminAcces;
+        string url;
+
+        do{
+        cout <<"• Veuillez me renseigne le chemin d'acces du ficher !"<< endl;
+        cin >> cheminAcces;
+        cout <<"• Veuillez me renseigne le nom du ficher à génere et son extension !"<< endl;
+        cin >> urlFile;
+        }while(cheminAcces.empty()==true && urlFile.empty()==true);
+
+        int *p = Occurrences_Lettres(urlFile);
+        if(p == 0){
+                    cout <<"Impossible d'ouvrir le ficher !!"<< endl;
+                    cout <<"Veuillez verifier le chemin ou acces du ficher saisie !!!"<< endl;
+        }
+        else{   cout <<"• Ficher Génere avec succes !"<< endl;}
+
+    }
+    else if(choix == 2){
+
+        string cheminAcces;
+        string url;
+
+        do{
+        cout <<"• Veuillez me renseigne le chemin d'acces du ficher !"<< endl;
+        cin >> cheminAcces;
+        cout <<"• Veuillez me renseigne le nom du ficher à analyser et son extension !"<< endl;
+        cin >> urlFile;
+        }while(cheminAcces.empty()==true && urlFile.empty()==true);
+
+
+        int *p = Occurrences_Lettres(urlFile);
+        if(p == 0){ cout <<"Impossible d'ouvrir le ficher !!"<< endl;
+                    cout <<"Veuillez verifier le chemin ou acces du ficher saisie !!!"<< endl;}
+        else{Trouve_langue(p,urlFile);}
+
+
+    }
+    else if(choix == 3){ cout <<"Aurevoir :)"<< endl;}
+    else{
+        cout <<"Une erreur c'est produite"<< endl;
+        cout << "Nous vous prions de nous excuser pour la gêne occasionnée" << endl;
+        exit(0);
+        }
 
 
     return 0;

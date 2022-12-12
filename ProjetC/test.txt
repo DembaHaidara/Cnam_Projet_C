@@ -2,11 +2,4 @@ Noël a lieu le 25 décembre. C’est une fête chrétienne qui célèbre la nai
 Noël a lieu le 25 décembre. C’est une fête chrétienne qui célèbre la naissance de Jésus. Les familles se réunissent et partagent un bon repas le soir du 24 décembre, et on s’offre des cadeaux. Enfin, Pâques n’a pas de date fixe, c’est un dimanche compris entre le 22 mars et le 25 avril. À cette occasion, les parents cachent des oeufs en chocolat dans la maison et le jardin, et les enfants s'amusent à les chercher
 
 Noël a lieu le 25 décembre. C’est une fête chrétienne qui célèbre la naissance de Jésus. Les familles se réunissent et partagent un bon repas le soir du 24 décembre, et on s’offre des cadeaux. Enfin, Pâques n’a pas de date fixe, c’est un dimanche compris
-Occurences du texte à analyser : a : 43 b : 10 c : 33 d : 22 e : 98 f : 15 g : 2 h : 9 i : 30 j : 3 k : 0 l : 32 m : 14 n : 50 o : 19 p : 11 q : 5 r : 30 s : 50 t : 34 u : 25 v : 1 w : 0 x : 4 y : 0 z : 0  
-Tableau d'occurences : 43,10,33,22,98,15,2,9,30,3,0,32,14,50,19,11,5,30,50,34,25,1,0,4,0,0
-Langue trouvée : anglais
-allemand; écart : 0.099451
-espagnol; écart : 0.0980462
-francais; écart : 0.0942017
-italien; écart : 0.776572
-anglais; écart : 0.0902901
+
