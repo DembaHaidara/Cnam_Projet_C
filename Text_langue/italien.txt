@@ -4,3 +4,5 @@ La Corea del Sud parte veloce e chiude il Ghana nella sua area. Gli asiatici col
 Son non riesce mai a trovare lo spazio e il tempo per rendersi pericoloso e il primo tempo finisce senza tiri nello specchio da parte della Corea del Sud: è la terza frazione di gioco consecutiva in cui la squadra di Paulo Bento non riesce a centrare la porta avversaria
 riesce a centrare la porta
 
+Occurences du texte à analyser : a : 227;b : 10;c : 86;d : 81;e : 225;f : 14;g : 24;h : 21;i : 189;j : 2;k : 0;l : 120;m : 46;n : 142;o : 201;p : 59;q : 10;r : 137;s : 97;t : 100;u : 67;v : 32;w : 3;x : 0;y : 5;z : 20; 
+Tableau d'occurences : [227,10,86,81,225,14,24,21,189,2,0,120,46,142,201,59,10,137,97,100,67,32,3,0,5,20]

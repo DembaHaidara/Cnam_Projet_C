@@ -14,5 +14,5 @@ unter deren Dach viele Fäden der globalen Finanzregulierung zusammenlaufen. Die
 
 Experten trauen Entspannungssignalen nicht
 
-Occurences du texte à analyser : a : 123 b : 50 c : 49 d : 74 e : 259 f : 49 g : 47 h : 77 i : 150 j : 0 k : 26 l : 54 m : 24 n : 223 o : 37 p : 13 q : 0 r : 98 s : 91 t : 89 u : 88 v : 9 w : 11 x : 2 y : 5 z : 37  
-Tableau d'occurences : 123,50,49,74,259,49,47,77,150,0,26,54,24,223,37,13,0,98,91,89,88,9,11,2,5,37
+Occurences du texte à analyser : a : 201;b : 39;c : 78;d : 135;e : 483;f : 35;g : 62;h : 82;i : 247;j : 4;k : 26;l : 157;m : 65;n : 331;o : 141;p : 57;q : 4;r : 173;s : 266;t : 155;u : 212;v : 37;w : 11;x : 10;y : 7;z : 22; 
+Tableau d'occurences : [201,39,78,135,483,35,62,82,247,4,26,157,65,331,141,57,4,173,266,155,212,37,11,10,7,22]

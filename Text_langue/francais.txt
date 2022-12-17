@@ -21,3 +21,5 @@ Le public est jeune, en effet 50% des visiteurs ont moins de 30 ans. Notons enfi
 les Italiens, les Anglais et Brésiliens
 
 
+Occurences du texte à analyser : a : 78;b : 12;c : 30;d : 76;e : 233;f : 8;g : 21;h : 6;i : 106;j : 4;k : 0;l : 103;m : 44;n : 93;o : 100;p : 44;q : 4;r : 79;s : 180;t : 66;u : 124;v : 28;w : 0;x : 8;y : 2;z : 0; 
+Tableau d'occurences : [78,12,30,76,233,8,21,6,106,4,0,103,44,93,100,44,4,79,180,66,124,28,0,8,2,0]
