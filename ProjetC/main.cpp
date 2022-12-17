@@ -1,9 +1,13 @@
 #include <iostream>
 #include <fstream> // lire ecrir file
 #include <string>
-#include <sstream>
+#include <sstream>// stream
 #include <math.h>  //O
 #include <algorithm>
+#include <array>
+#include <wchar.h>
+
+
 
 
 
@@ -11,12 +15,12 @@
 
 using namespace std;
 
-char conversionChar(char s) {
+char conversionChar(wchar_t s) {
     // Majuscule en minuscule
     s = tolower(s);
 
     //A, Â, À, Ä, â, à, ä
-    if (s == 'â' || s == 'à' || s == 'ä') {
+    if (s == 'Ä' || s == 'à' || s == 'ä') {
         s = 'a';
         cout << "ok";
     }
@@ -48,12 +52,25 @@ char conversionChar(char s) {
     return s;
 
 }
+void Securiter(string urlFile){
+   //Verification du nom des ficher sinon a cause du ofstream meme si le nom di ficher est faux il va le cree puis ecrit dedans
+    if(urlFile == "francais.txt"){}
+    else if(urlFile == "allemand.txt"){}
+    else if(urlFile == "italien.txt"){}
+    else if(urlFile == "espagnol.txt"){}
+    else if(urlFile == "test.txt"){}
+    else{
+        cout <<"URL saisie incorrecte"<< endl;
+        exit(0);}
+}
 
 int* Occurrences_Lettres(string urlFile){
 
+
     //Déclaration d'un flux permettant de lire dans le fichier
-    ifstream monFlux(urlFile);
-    ofstream monFluxWrite(urlFile,ios::app);
+    ifstream monFlux(urlFile); //pour lire le file
+    ofstream monFluxWrite(urlFile,ios::app); //pour write avec 2 eme parametre qui signifie a la fin du ficher
+
 
     /*
     3 facons de lire un file :
@@ -64,18 +81,24 @@ int* Occurrences_Lettres(string urlFile){
     */
 
     char letter,letter2;
-    int static tab[26] = {};
+    wchar_t caract;
+                cout << caract <<endl;
+
+
+    int static tab[26] = {};//tableau quii contiendra le nb d occurence
      char tabLetter[26] ={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 
-    string tableau = "";
+    string tableau = ""; // tableau quii contiendra le nb d occurence en mode string , va nous servie pour l enregistrer dans le file
 
+    if(monFlux && monFluxWrite){// je verifie si l ouverture du ficher en ecriture et lecture est possible
+        while(monFlux.get(letter)){// je recupere dans le ficher caractere par caractere
+        caract = letter;
+                        cout << " l "<< letter <<endl;
 
-    if(monFlux && monFluxWrite){
-        while(monFlux.get(letter)){
-
-        letter2 = conversionChar(letter);
+                        cout << "c"<< caract <<endl;
+        letter2 = conversionChar(caract);// je convertir tout les caracter spacial
             for(int i =0;i < 26;i++){
-                if(tabLetter[i]== letter2){
+                if(tabLetter[i]== letter2){ //des que je croisse la lettre je l enregistre dans le tab
                 tab[i] +=1;
                // cout << tab[i] << endl;
                 }
@@ -107,12 +130,11 @@ cout << "Nous vous prions de nous excuser pour la gêne occasionnée" << endl;
 exit(0);
 
 };
-
-int * recupTabFile(string urlFile){
+int * genereTabFileAuto(string urlFile){
 
     int static tab[26];
 
-  ifstream monFlux(urlFile); // ouvre le file en mode lecture
+   ifstream monFlux(urlFile); // ouvre le file en mode lecture
    if(monFlux){
 
     std::string str;
@@ -130,22 +152,57 @@ int * recupTabFile(string urlFile){
         i++;
     }
     return tab;
-
-   }
-    else{
+    }
+     else{
         return 0;
     }
 cout <<"Une erreur c'est produite"<< endl;
 cout << "Nous vous prions de nous excuser pour la gêne occasionnée" << endl;
 exit(0);
 
+}
+int * recupTabFile(string urlFile,int choix2){
 
+    cout << urlFile << choix2 << endl;
+
+    if(choix2 == 1){
+     return genereTabFileAuto(urlFile);
+    }
+    else if(choix2 == 2){
+
+            if(urlFile == "francais.txt"){
+                   int tab[26] = {83,15,38,78,235,8,21,8,113,6,0,135,46,95,70,48,4,79,182,66,124,32,0,8,2,0};
+                   return tab;
+                    }
+            else if(urlFile == "allemand.txt"){
+                    int tab[26] = {123,50,49,74,259,49,47,77,150,0,26,54,24,223,37,13,0,98,91,89,88,9,11,2,5,37};
+                    return tab;
+
+                    }
+            else if(urlFile == "italien.txt"){
+                    int tab[26] = {203,10,94,71,20513,26,17,163,4,3,108,43,123,170,54,8,128,87,102,62,26,4,5,9,17};
+                    return tab;
+                    }
+            else if(urlFile == "espagnol.txt"){
+                     int tab[26] = {43,4,16,18,53,2,5,4,27,1,0,20,8,30,35,9,2,21,30,11,19,7,1,0,1,3};
+                     return tab;
+                    }
+            else{
+            cout <<"URL saisie incorrecte"<< endl;
+            exit(0);}
+            }
+
+    else{
+        cout <<"Une erreur c'est produite "<< endl;
+        cout << "Nous vous prions de nous excuser pour la gêne occasionnée" << endl;
+        exit(0);
+    }
 }
 
 
-double Calcule_ecart(int *textTabAnalyse,string urlLangue){
+double Calcule_ecart(int *textTabAnalyse,string urlLangue,int choix2){
 
-    int *tabLangue = recupTabFile(urlLangue+".txt");
+    int *tabLangue = recupTabFile(urlLangue+".txt",choix2);
 
     double sommeTextAnalyser = 0;
 
@@ -183,7 +240,7 @@ return resultatTabLangue;
 };
 
 
-void Trouve_langue(int *p,string urlFile)
+void Trouve_langue(int *p,string urlFile,int choix2)
 {
     string urlLangue[5] = {"allemand","espagnol","francais","italien","anglais"};
     double resultatLangue[5];
@@ -192,7 +249,7 @@ void Trouve_langue(int *p,string urlFile)
 
    // p = Occurrences_Lettres(urlFile);
     for(int i = 0;i < 5;i++){
-     resultatLangue[i] = Calcule_ecart(p,urlLangue[i]);
+     resultatLangue[i] = Calcule_ecart(p,urlLangue[i],choix2);
      };
    int positionLangue;
 
@@ -236,6 +293,7 @@ void Trouve_langue(int *p,string urlFile)
 }
 int main()
 {
+
     int choix;
     string urlFile ="test.txt";
 
@@ -267,6 +325,7 @@ int main()
         cout <<"• Veuillez me renseigne le nom du ficher à génere et son extension !"<< endl;
         cin >> urlFile;
         }while(cheminAcces.empty()==true && urlFile.empty()==true);
+        Securiter(urlFile);
 
         int *p = Occurrences_Lettres(urlFile);
         if(p == 0){
@@ -288,11 +347,26 @@ int main()
         cin >> urlFile;
         }while(cheminAcces.empty()==true && urlFile.empty()==true);
 
+        Securiter(urlFile);
+
 
         int *p = Occurrences_Lettres(urlFile);
         if(p == 0){ cout <<"Impossible d'ouvrir le ficher !!"<< endl;
                     cout <<"Veuillez verifier le chemin ou acces du ficher saisie !!!"<< endl;}
-        else{Trouve_langue(p,urlFile);}
+        else{
+        int choix2;
+         do{
+    cout <<"Que souhaitez-vous générer ?"<< endl;
+    cout <<"• Genere les tableau a partir des ficher texte langue  : Option (1)"<< endl;
+    cout <<"• Genere les tableau de langue par-defaut: Option (2)"<< endl;
+
+
+
+
+    }while( (choix2 != 1) && (choix2 != 2));
+
+
+        Trouve_langue(p,urlFile,choix2);}
 
 
     }
