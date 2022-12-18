@@ -1,55 +1,46 @@
 #include <iostream> //  écrire file
 #include <fstream> //lire file
 #include <string>
-#include <math.h>  // fonction maths (racine carre sqrt)
-#include <wchar.h> // Caractere large
+#include <math.h>  // fonction maths (racine carré sqrt)
+#include <wchar.h> // Caractère large
 
 using namespace std;
 
-//Fonction qui permet de convertir les caractere avec accent en caractere simple
-char conversionChar(char s) {
-    wchar_t caract = s;
-    char re = s;
+//Fonction qui permet de convertir les caractère avec accent en caractère simple
+char conversionChar(char c) {
+    char caracter = c;
 
-         if ((caract >= 131 && caract <= 134) || caract == 61|| (caract >= 142 && caract <= 143) || caract==160 || (caract >= 181 && caract <= 183) || (caract >= 198 && caract <= 199) || (caract >= -125 && caract <= -122) || (caract >= -114 && caract <= -113) || caract==-96 || (caract >= -75 && caract <= -73) || (caract >= -58 && caract <= -57)){
-                        re=97; //a
-                        cout << "ok"<< endl;
-                    }
-                    // Transforme les accents similaires a lettre "c" en "c"
-                    else if(caract==128 || caract==135 || caract==-121){
-                        re=99;
-                    }
-                    // Transforme les accents similaires a lettre "d" en "d"
-                    else if(caract == 209 || caract==-47){
-                        re=100;
-                    }
-                    // Transforme les accents similaires a lettre "e" en "e"
-                    else if(caract==130 || (caract >= 136 && caract <= 138) || caract==144 || (caract >= 210 && caract <= 212) || caract==-126 || (caract >= -120 && caract <= -118) || caract==-112 ||(caract >= -46 && caract <= -44)){
-                        re=101;
-                    }
-                    // Transforme les accents similaires a lettre "i" en "i"
-                    else if((caract >= 139 && caract <= 141) || caract==161 || caract==173 || (caract >= 214 && caract <= 216) || caract==222 || (caract >= -117 && caract <= -115) || caract==-95 || (caract >= -42 && caract <= -34)){
-                        re=105;
-                    }
-                    // Transforme les accents similaires a lettre "n" en "n"
-                    else if((caract >= 164 && caract <= 165) || (caract >= -92 && caract <= -91)){
-                        re=110;
-                    }
-                    // Transforme les accents similaires a lettre "o" en "o"
-                    else if((caract >= 147 && caract <= 149) || caract==153 || caract==162 || caract==208 || caract==224 || (caract >= 226 && caract <= 229) || (caract >= -109 && caract <= -107) || caract==-103 || caract==-94 || (caract >= -32 && caract <= -27)){
-                        re=111;
-                    }
-                    // Transforme les accents similaires a lettre "u" en "u"
-                    else if(caract==129 || (caract >= 150 && caract <= 151) || caract==154 || caract==163 || (caract >= 233 && caract <= 235) || caract==-127 || (caract >= -106 && caract <= -105) || caract==-102 || caract==-93 || (caract >= -23 && caract <= -21)){
-                        re=117;
-                    }
-                    // Transforme les accents similaires a lettre "y" en "y"
-                    else if(caract==152 || (caract >= 236 && caract <= 237) || caract==-104 || (caract >= -20 && caract <= -19)){
-                        re=121;
-                    }
-                    else{}
+    // a
+    if (caracter == -126 || caracter == -128 || caracter == -124 || caracter == -94 || caracter == -96 || caracter == -92) {
+        caracter = 97;
+    }
 
-  return re;
+    // e
+    else if (caracter == -119 || caracter == -120 || caracter == -118 || caracter == -117 || caracter == -87 || caracter == -88 || caracter == -86 || caracter == -85) {
+        caracter = 101;
+    }
+
+    // i
+    else if (caracter == -113 || caracter == -114 || caracter == -81 || caracter == -82) {
+        caracter = 105;
+    }
+
+    // o
+    else if (caracter == -76 || caracter == -108 ) {
+        caracter = 111;
+    }
+
+    // u
+    else if (caracter == -101 || caracter == -103 || caracter == -69 || caracter == -71) {
+        caracter = 117;
+    }
+
+    // c
+    else if (caracter == -121 || caracter == -89) {
+        caracter = 99;
+    }
+
+  return caracter;
 
 }
 //Fonction qui permet de compter le nb d'occurence de chaque lettre de l'alphabet d un ficher txt puis
@@ -77,7 +68,6 @@ int * Occurrences_Lettres(string urlFile) {
 
   if (monFlux && monFluxWrite) { // je verifie si l ouverture du ficher en ecriture et lecture est possible
     while (monFlux.get(letter)) { // je recupere dans le ficher caractere par caractere
-        cout <<" lettre"<< letter <<" int : "<< (int)letter<< endl;
 
       letter2 = conversionChar(letter); // je convertir tout les caracter spacial et me retourne la valeur sans accent
       for (int i = 0; i < 26; i++) {
@@ -91,7 +81,7 @@ int * Occurrences_Lettres(string urlFile) {
 
       tableau += to_string(tabOccurence[i]); // me convertie mon tableau de int en string
 
-      monFluxWrite << tabLetter[i] << " : " << tabOccurence[i] << ";"; //permet d'ecricre les occurence dans le ficher txt  write << data
+      monFluxWrite << tabLetter[i] << ":" << tabOccurence[i] << " ; "; //permet d'ecricre les occurence dans le ficher txt  write << data
 
       // Si j arrive a l indice 25 , ne me concatene pas la virgule
       if (i == 25) {} else {
@@ -131,8 +121,11 @@ int * recupTabFile(string urlFile) {
     int static tab[26] = {116,27,48,67,219,35,36,66,129,7,19,57,33,111,91,23,0,93,135,145,59,19,24,4,32,0};
     return tab;
   }
-
+  else {
+    return 0;
+  }
 }
+
 // Permet de calculer l'ecart
 double Calcule_ecart(int * textTabAnalyse, string urlLangue) {
 
@@ -213,9 +206,6 @@ void Trouve_langue(int * p, string urlFile) {
   }
 
 }
-
-
-
 
 int main() {
   int choix; // choix selon les options 1,2,3
