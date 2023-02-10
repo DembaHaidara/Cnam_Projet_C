@@ -1,0 +1,20 @@
+Mi nombre es Rose, tengo 21 años, estudio tecnología de la información en la universidad. Cada mañana me despierto a las 7:00, me levanto, me ducho, me seco el cabello y me hago un buen desayuno con café, leche, galletas y mermelada. Después de eso limpio los dientes, hago la cama y a las 8.15 llevo al perro al parque para 20 minutos. Después en autobús voy a la universidad.
+
+Voy a las clases y muy a menudo estudio en la biblioteca con mi amiga Lucy. Suelo comer en el comedor de la universidad. Por la tarde voy caminando a casa porque me gusta mucho pasear y mirar en los escaparates de las tiendas. Los miércoles voy a clases de yoga y, cuando llego a casa, me doy un relajante baño antes de acostarme.
+
+El sábado es mi día libre por eso puedo despertarme más tarde. Por la mañana arreglo la habitación y juego con el perro. Por la noche me maquillo escrupulosamente, me peino, me pongo mi ropa favorita y moderna y salgo con amigos al cine, a comer helado o, a veces, a la discoteca.
+
+Las cuatro estaciones (primavera, verano, otoño e invierno) se diferencian mucho en distintas partes de Estados Unidos por sus condiciones climáticas. El invierno en California puede ser caluroso y el invierno en Nueva York puede traer ventiscas, pero no obstante, ambos son períodos invernales.
+
+La primavera es una temporada de 'deshielo' cuando el frío y la nieve en invierno se reemplazan por la luz del sol, temperaturas moderadas, hierba verde y flores. En esta temporada aparecen de nuevo las abejas y las mariposas durmientes y los pájaros se vuelven más activos.
+
+El verano es el más cálido, largo y animado de las cuatro estaciones. A los estudiantes se les da aproximadamente dos meses de verano para descansar de las clases y, por supuesto, durante esta temporada hay más jóvenes en la calle que en cualquier otra estación. No es raro ver a personas paseando con pantalones cortos, camisetas y gafas de sol.
+
+Occurrences du texte à analyser : a:194 ; b:14 ; c:60 ; d:71 ; e:208 ; f:8 ; g:16 ; h:12 ; i:73 ; j:5 ; k:1 ; l:88 ; m:61 ; n:100 ; o:143 ; p:45 ; q:5 ; r:94 ; s:129 ; t:57 ; u:52 ; v:31 ; w:0 ; x:1 ; y:28 ; z:2 ;  
+Tableau d'occurrences : [194,14,60,71,208,8,16,12,73,5,1,88,61,100,143,45,5,94,129,57,52,31,0,1,28,2]
+Langue trouvée : espagnol
+allemand; écart : 0.15
+espagnol; écart : 0.03
+francais; écart : 0.09
+italien; écart : 0.09
+anglais; écart : 0.09
